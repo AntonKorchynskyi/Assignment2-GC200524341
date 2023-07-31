@@ -1,0 +1,15 @@
+#listView {
+    -fx-font-size: 12pt;
+}
+
+#mainLabel {
+    -fx-font-size: 24pt;
+}
+
+#definitionsLabel {
+    -fx-font-size: 18pt;
+}
+
+#textField {
+    -fx-font-size: 14pt;
+}
