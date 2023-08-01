@@ -3,6 +3,7 @@ package com.example.assignment2.Controllers;
 import com.example.assignment2.Models.Definitions;
 import com.example.assignment2.Models.Word;
 import com.example.assignment2.Utilities.ApiUtility;
+import com.example.assignment2.Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,8 +37,8 @@ public class WordController implements Initializable {
     private TextField textField;
 
     @FXML
-    void random_onClick(ActionEvent event) {
-
+    void random_onClick(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "random-word-view.fxml", "Random Word!");
     }
 
     @FXML
