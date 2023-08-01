@@ -1,54 +1,61 @@
 package com.example.assignment2.Controllers;
 
+import com.example.assignment2.Models.RandomWord;
+import com.example.assignment2.Models.Results;
+import com.example.assignment2.Utilities.ApiUtility;
+import com.example.assignment2.Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 
-public class RandomWordController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Label definitionLabel;
-
-    @FXML
-    private Label definitionsLabel;
-
-    @FXML
-    private Label definitionsLabel1;
+public class RandomWordController implements Initializable {
 
     @FXML
     private Button goBackButton;
 
     @FXML
-    private GridPane gridPane;
-
-    @FXML
     private Label mainLabel;
-
-    @FXML
-    private Label partOfSpeechLabel;
 
     @FXML
     private Button randomBtn;
 
     @FXML
-    private Label synonymsLabel;
-
-    @FXML
-    private Label typeOfLabel;
-
-    @FXML
     private Label wordLabel;
 
     @FXML
-    void goBack_onClick(ActionEvent event) {
+    private ListView<Results> listView;
 
+    @FXML
+    void goBack_onClick(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "word-view.fxml", "Choose your word!");
     }
 
     @FXML
     void random_onClick(ActionEvent event) {
+        listView.getItems().clear();
 
+        RandomWord newRandomWord = ApiUtility.getRandomWordFromApi();
+
+        wordLabel.setText(newRandomWord.getRandomWord());
+        if (newRandomWord.getResults() == null) {
+            mainLabel.setText("No information on the word was found!");
+        }
+        else {
+            mainLabel.setText("Random Word!");
+            listView.getItems().addAll(newRandomWord.getResults());
+        }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        random_onClick(new ActionEvent());
+    }
 }

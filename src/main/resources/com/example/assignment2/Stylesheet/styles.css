@@ -17,3 +17,15 @@
 #gridPane {
     -fx-font-size: 14pt;
 }
+
+.button {
+    -fx-font-size: 14pt;
+}
+
+#wordLabel {
+    -fx-font-size: 14pt;
+}
+
+.root {
+    -fx-background-color: lightblue;
+}

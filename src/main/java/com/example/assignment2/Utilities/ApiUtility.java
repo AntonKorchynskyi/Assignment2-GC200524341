@@ -43,7 +43,6 @@ public class ApiUtility {
         try {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             Gson gson = new Gson();
-            System.out.println(gson.fromJson(response.body(), RandomWord.class));
             return gson.fromJson(response.body(), RandomWord.class);
         } catch (Exception e){
             e.printStackTrace();

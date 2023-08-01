@@ -2,6 +2,8 @@ package com.example.assignment2.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+
 public class RandomWord {
 
     @SerializedName("word")
