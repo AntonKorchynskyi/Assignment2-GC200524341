@@ -25,7 +25,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Word word1 = ApiUtility.getWordFromApi("fate");
         RandomWord randomWord2 = ApiUtility.getRandomWordFromApi();
         System.out.println(randomWord2.getRandomWord());
         System.out.println(randomWord2.getResults());
