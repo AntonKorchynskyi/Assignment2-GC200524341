@@ -1,5 +1,6 @@
 package com.example.assignment2;
 
+import com.example.assignment2.Models.RandomWord;
 import com.example.assignment2.Models.Word;
 import com.example.assignment2.Utilities.ApiUtility;
 import javafx.application.Application;
@@ -25,7 +26,9 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Word word1 = ApiUtility.getWordFromApi("fate");
-        System.out.println(word1.getDefinitions());
+        RandomWord randomWord2 = ApiUtility.getRandomWordFromApi();
+        System.out.println(randomWord2.getRandomWord());
+        System.out.println(randomWord2.getResults());
         launch();
     }
 }
