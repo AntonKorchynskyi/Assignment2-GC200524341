@@ -6,6 +6,7 @@ import com.example.assignment2.Utilities.ApiUtility;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,14 +21,12 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Views/word-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Choose your word!");
+        stage.getIcons().add(new Image("file:src/main/resources/com/example/Assignment2/Images/Logo.jpg"));
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        RandomWord randomWord2 = ApiUtility.getRandomWordFromApi();
-        System.out.println(randomWord2.getRandomWord());
-        System.out.println(randomWord2.getResults());
+    public static void main(String[] args) {
         launch();
     }
 }
