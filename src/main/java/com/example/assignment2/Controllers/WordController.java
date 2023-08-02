@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WordController implements Initializable {
+public class WordController {
 
     @FXML
     private Label definitionsLabel;
@@ -36,11 +36,20 @@ public class WordController implements Initializable {
     @FXML
     private TextField textField;
 
+    /**
+     * Changes scenes
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void random_onClick(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "random-word-view.fxml", "Random Word!");
     }
 
+    /**
+     * Searches for the inputted word
+     * @param event
+     */
     @FXML
     void search_onClick(ActionEvent event) {
         listView.getItems().clear();
@@ -54,10 +63,5 @@ public class WordController implements Initializable {
             listView.getItems().addAll(newWord.getDefinitions());
             mainLabel.setText("Choose Your Word!");
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        listView.getItems().addAll(ApiUtility.getWordFromApi("fate").getDefinitions());
     }
 }

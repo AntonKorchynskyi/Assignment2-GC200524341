@@ -33,11 +33,20 @@ public class RandomWordController implements Initializable {
     @FXML
     private ListView<Results> listView;
 
+    /**
+     * Changes scenes
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goBack_onClick(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "word-view.fxml", "Choose your word!");
     }
 
+    /**
+     * Returns random word with info about it
+     * @param event
+     */
     @FXML
     void random_onClick(ActionEvent event) {
         listView.getItems().clear();

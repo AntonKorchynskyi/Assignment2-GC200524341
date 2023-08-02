@@ -10,6 +10,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ApiUtility {
+
+    /**
+     * Makes an API call and returns an inputted word with info about it
+     * @return word
+     */
     public static Word getWordFromApi(String searchName){
         searchName = searchName.replace(" ", "%20");
         String url = "https://wordsapiv1.p.rapidapi.com/words/" + searchName + "/definitions";
@@ -32,6 +37,10 @@ public class ApiUtility {
         return null;
     }
 
+    /**
+     * Makes an API call and returns a random word with info about it
+     * @return random word
+     */
     public static RandomWord getRandomWordFromApi(){
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/?random=true"))
